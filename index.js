@@ -6,7 +6,6 @@ const authorInput = document.querySelector('.author-input');
 const submit = document.querySelector('.add');
 const booksDiv = document.querySelector('.books');
 
-// Empty Array to store the Book
 let arrayOfBooks = [];
 
 if (localStorage.getItem('books')) {
@@ -14,17 +13,13 @@ if (localStorage.getItem('books')) {
 }
 
 const addElementsToPage = ((arrayOfBooks) => {
-  // Empty Tasks Div
   booksDiv.innerHTML = '';
 
-  //  Looping On Array Of Tasks
   arrayOfBooks.forEach((task) => {
     const contactElement = ' By : ';
-    // Creat Main Div
     const div = document.createElement('div');
     div.className = 'task mb-3';
 
-    // Check If Task is Done
     if (task.completed) {
       div.className = 'task done';
     }
@@ -33,20 +28,15 @@ const addElementsToPage = ((arrayOfBooks) => {
       document.createTextNode(task.title + contactElement + task.author),
     );
 
-    // Creat Delet button
     const span = document.createElement('span');
     span.className = 'del btn btn-danger ms-5';
     span.appendChild(document.createTextNode('Delet'));
 
-    // Append Button to Main Div
     div.appendChild(span);
 
-    // Add Task Div To Main
     booksDiv.appendChild(div);
   });
 });
-
-// Get Books To LocalStorage Function
 
 const getFromLocalStorage = () => {
   const data = window.localStorage.getItem('books');
@@ -61,8 +51,6 @@ getFromLocalStorage();
 
 class AddingBooks {
   static addTaskToArray(taskText, authorText) {
-    // Task Data
-
     const task = {
       id: Date.now(),
       title: taskText,
@@ -70,21 +58,15 @@ class AddingBooks {
       completed: false,
     };
 
-    //   Push Task To Array of books
-
     arrayOfBooks.push(task);
 
-    // Add Elements to Page
-
     addElementsToPage(arrayOfBooks);
-
-    // Add books To Local Storage
 
     addToLocalStorage(arrayOfBooks);
   }
 }
 
-// add book
+// ################ Add book ################
 submit.onclick = () => {
   if ((bookInput.value && authorInput.value) !== '') {
     AddingBooks.addTaskToArray(bookInput.value, authorInput.value); // Add task to Array of Tasks
@@ -99,14 +81,12 @@ const deletTaskWith = (taskId) => {
   addToLocalStorage(arrayOfBooks);
 };
 
-// Click on Task Element
+// ################ Click to delet Element ################
 
 booksDiv.addEventListener('click', (e) => {
   if (e.target.classList.contains('del')) {
-    // Remove Element from Page
     e.target.parentElement.remove();
 
-    // Remove Task From LocalStorage
     deletTaskWith(JSON.parse(e.target.parentElement.getAttribute('data-id')));
   }
 });
