@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/sketchy/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+
+    <title>Awesome Book</title>
+  </head>
+
+  <body>
+
+    <header class="header border-bottom border-primary">
+      <a href="./index.html" id="logo">Awesome Books</a>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <nav>
+        <ul id="nav-links">
+          <li id="nav-list">List</li>
+          <li id="nav-add-new">Add new</li>
+          <li id="nav-contact">Contact</li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="m-3">
+      <p id="current-date"></p>
+    </div>
+
+    <div class="container mt-4 text-center">
+      <h1 class="display-4">
+        <i class="fas fa-book-open text-primary"></i> Awesome<span
+          class="text-primary"
+        >
+          Book</span
+        >
+      </h1>
+
+      <!-- ############ Book List section ############## -->
+      <div class="books-list">
+        <div class="books form-control mt-5"></div>
+      </div>
+
+      <!-- ############ Input Section For Book title and Author######### -->
+      <div class="form mt-5 add-new-book">
+        <label for="title" class="text me-3">Book</label>
+        <input type="text" id="title" class="book-input me-3 w-50" />
+        <br />
+        <label for="author" class="text me-3 mt-3">Author</label>
+        <input type="text" id="author" class="author-input me-3 w-50" />
+        <br />
+        <input
+          type="submit"
+          value="Add Book"
+          class="add mt-2 btn btn-secondary btn-lg"
+        />
+      </div>
+
+      <!-- ################ Contact Section ################## -->
+
+      <div class="text-capitalize text-center contact-info add-contact-info">
+        <h2>Contact Information</h2>
+        <p>
+          Do you have any questions or you just want to say "Hello"? <br />
+          You can reach out to us!
+        </p>
+        <ul>
+          <li>Our e-mail: mail@mail.com</li>
+          <li>Our phone number: 00123456789</li>
+          <li>Our address: Streetname 22, 123456 City, Country</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>All copyrights are reserved.</p>
+    </footer>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
