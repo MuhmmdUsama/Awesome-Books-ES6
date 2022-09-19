@@ -20,9 +20,6 @@ const addElementsToPage = ((arrayOfBooks) => {
     const div = document.createElement('div');
     div.className = 'task mb-3';
 
-    if (task.completed) {
-      div.className = 'task done';
-    }
     div.setAttribute('data-id', task.id);
     div.appendChild(
       document.createTextNode(task.title + contactElement + task.author),
@@ -55,7 +52,6 @@ class AddingBooks {
       id: Date.now(),
       title: taskText,
       author: authorText,
-      completed: false,
     };
 
     arrayOfBooks.push(task);
