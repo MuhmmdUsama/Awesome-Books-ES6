@@ -13,7 +13,7 @@ A basic website that allows users to add/remove books from a list. I achieved th
 
 ## Live Demo
 
-[Live](https://muhmmdusama.github.io/Awesome-Books/#)
+[Live](https://muhmmdusama.github.io/Awesome-Books-ES6/)
 
 ## Getting Started
 
