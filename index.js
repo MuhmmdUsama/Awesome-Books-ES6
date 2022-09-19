@@ -60,6 +60,11 @@ class AddingBooks {
 
     addToLocalStorage(arrayOfBooks);
   }
+
+  static deletTaskWith = (taskId) => {
+    arrayOfBooks = arrayOfBooks.filter((task) => (task.id !== taskId));
+    addToLocalStorage(arrayOfBooks);
+  };
 }
 
 // ################ Add book ################
@@ -72,18 +77,13 @@ submit.onclick = () => {
   }
 };
 
-const deletTaskWith = (taskId) => {
-  arrayOfBooks = arrayOfBooks.filter((task) => (task.id !== taskId));
-  addToLocalStorage(arrayOfBooks);
-};
-
 // ################ Click to delet Element ################
 
 booksDiv.addEventListener('click', (e) => {
   if (e.target.classList.contains('del')) {
     e.target.parentElement.remove();
 
-    deletTaskWith(JSON.parse(e.target.parentElement.getAttribute('data-id')));
+    AddingBooks.deletTaskWith(JSON.parse(e.target.parentElement.getAttribute('data-id')));
   }
 });
 
