@@ -63,6 +63,11 @@ footer p {
   margin-left: 1rem;
 }
 
+.task {
+  display: flex;
+  justify-content: space-around;
+}
+
 @media screen and (max-width: 520px) {
   header {
     padding: 5px 20px;

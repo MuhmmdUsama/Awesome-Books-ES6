@@ -20,9 +20,6 @@ const addElementsToPage = ((arrayOfBooks) => {
     const div = document.createElement('div');
     div.className = 'task mb-3';
 
-    if (task.completed) {
-      div.className = 'task done';
-    }
     div.setAttribute('data-id', task.id);
     div.appendChild(
       document.createTextNode(task.title + contactElement + task.author),
@@ -55,7 +52,6 @@ class AddingBooks {
       id: Date.now(),
       title: taskText,
       author: authorText,
-      completed: false,
     };
 
     arrayOfBooks.push(task);
@@ -64,6 +60,11 @@ class AddingBooks {
 
     addToLocalStorage(arrayOfBooks);
   }
+
+  static deletTaskWith = (taskId) => {
+    arrayOfBooks = arrayOfBooks.filter((task) => (task.id !== taskId));
+    addToLocalStorage(arrayOfBooks);
+  };
 }
 
 // ################ Add book ################
@@ -76,18 +77,13 @@ submit.onclick = () => {
   }
 };
 
-const deletTaskWith = (taskId) => {
-  arrayOfBooks = arrayOfBooks.filter((task) => (task.id !== taskId));
-  addToLocalStorage(arrayOfBooks);
-};
-
 // ################ Click to delet Element ################
 
 booksDiv.addEventListener('click', (e) => {
   if (e.target.classList.contains('del')) {
     e.target.parentElement.remove();
 
-    deletTaskWith(JSON.parse(e.target.parentElement.getAttribute('data-id')));
+    AddingBooks.deletTaskWith(JSON.parse(e.target.parentElement.getAttribute('data-id')));
   }
 });
 
