@@ -43,7 +43,6 @@ const getFromLocalStorage = () => {
   }
 };
 
-// Trigger Get Data From Local Storage Function
 getFromLocalStorage();
 
 class AddingBooks {
